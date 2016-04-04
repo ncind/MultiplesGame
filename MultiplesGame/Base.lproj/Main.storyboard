@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultiplesGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +22,100 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chalkboard" translatesAutoresizingMaskIntoConstraints="NO" id="YB6-AN-vco">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MULTIPLES" translatesAutoresizingMaskIntoConstraints="NO" id="r3j-l4-0Y7" userLabel="multiplesImage">
+                                <rect key="frame" x="144" y="65" width="313" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="oAb-BS-IXB"/>
+                                    <constraint firstAttribute="width" constant="313" id="uBm-QI-ydZ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EM-Ts-2wR" userLabel="playBtn">
+                                <rect key="frame" x="211" y="420" width="179" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="Smw-m7-ZcH"/>
+                                    <constraint firstAttribute="height" constant="180" id="Sy8-22-lBo"/>
+                                </constraints>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="onPlayButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKq-iO-hMq"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Add to add!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4X7-2m-KAY" userLabel="resultLbl">
+                                <rect key="frame" x="167" y="161" width="266" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="Qk8-Kp-XQF"/>
+                                    <constraint firstAttribute="height" constant="34" id="p46-5p-lno"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhW-9R-B4b" userLabel="addBtn">
+                                <rect key="frame" x="195" y="440" width="211" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="211" id="bE9-fv-j8o"/>
+                                    <constraint firstAttribute="height" constant="101" id="uMs-hV-Cw5"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="onAddButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLu-ri-ed8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGj-uL-p04" userLabel="multipleTxt">
+                                <rect key="frame" x="167" y="382" width="266" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="1FG-RW-IJv"/>
+                                    <constraint firstAttribute="height" constant="30" id="DJh-7c-IrP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vhW-9R-B4b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1nh-MU-kgY"/>
+                            <constraint firstItem="r3j-l4-0Y7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jm-Go-a8N"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1EM-Ts-2wR" secondAttribute="bottom" id="Fmd-st-Omh"/>
+                            <constraint firstItem="vGj-uL-p04" firstAttribute="top" secondItem="4X7-2m-KAY" secondAttribute="bottom" constant="187" id="QUN-oD-o2q"/>
+                            <constraint firstItem="1EM-Ts-2wR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QeE-eL-n8N"/>
+                            <constraint firstItem="4X7-2m-KAY" firstAttribute="top" secondItem="r3j-l4-0Y7" secondAttribute="bottom" constant="34" id="Qeb-6E-R6C"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vhW-9R-B4b" secondAttribute="bottom" constant="59" id="T9g-Ki-peR"/>
+                            <constraint firstItem="vGj-uL-p04" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tm2-Yl-a1h"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YB6-AN-vco" secondAttribute="bottom" id="Yfw-1f-KIG"/>
+                            <constraint firstItem="YB6-AN-vco" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="bs2-Li-CZ1"/>
+                            <constraint firstItem="r3j-l4-0Y7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="dGP-9J-rGH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YB6-AN-vco" secondAttribute="trailing" constant="-20" id="gis-Kv-e3F"/>
+                            <constraint firstItem="4X7-2m-KAY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pqG-N8-ErR"/>
+                            <constraint firstItem="1EM-Ts-2wR" firstAttribute="top" secondItem="vGj-uL-p04" secondAttribute="bottom" constant="8" id="rEG-kR-mGU"/>
+                            <constraint firstItem="YB6-AN-vco" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="xpb-Z3-89J"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QUN-oD-o2q"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="vhW-9R-B4b" id="lIc-jo-uZc"/>
+                        <outlet property="multipleText" destination="vGj-uL-p04" id="vYC-VC-xKx"/>
+                        <outlet property="multiplesImg" destination="r3j-l4-0Y7" id="wpI-by-jPl"/>
+                        <outlet property="playButton" destination="1EM-Ts-2wR" id="PzF-8E-LRJ"/>
+                        <outlet property="resultLbl" destination="4X7-2m-KAY" id="sJW-3j-8Ly"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="781" y="441"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MULTIPLES" width="533" height="124"/>
+        <image name="add" width="211" height="101"/>
+        <image name="chalkboard" width="801" height="750"/>
+        <image name="play" width="272" height="268"/>
+    </resources>
 </document>
